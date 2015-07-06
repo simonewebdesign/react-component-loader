@@ -1,0 +1,37 @@
+{
+  "name": "react-component-loader",
+  "version": "0.0.1",
+  "description": "React Component Loader",
+  "main": "source/app.js",
+  "scripts": {
+    "init": "npm i && jspm i && mkdir build && touch build/.keep",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "http-server build/",
+    "clean": "rm -vrf build/*",
+    "build:html": "cp source/*.html build/",
+    "build:js": "jspm bundle-sfx source/app build/app.js",
+    "build": "npm run build:html && npm run build:js",
+    "watch:html": "onchange source/*.html -- npm run build:html",
+    "watch:js": "onchange 'source/**/*.js' -- npm run build:js",
+    "watch": "parallelshell 'npm run server' 'npm run watch:html' 'npm run watch:js'",
+    "start": "npm run build && npm run watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "react": "npm:react@^0.14.0-alpha3"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
+    }
+  },
+  "devDependencies": {
+    "http-server": "^0.8.0",
+    "onchange": "^1.1.0",
+    "parallelshell": "^1.2.0"
+  }
+}
