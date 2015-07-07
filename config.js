@@ -2,9 +2,11 @@ System.config({
   "baseURL": "/",
   "transpiler": "babel",
   "babelOptions": {
+    "stage": 0,
     "optional": [
       "runtime"
-    ]
+    ],
+    "blacklist": []
   },
   "paths": {
     "*": "*.js",
