@@ -1,21 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {renderComponent, renderMultipleComponents} from './rendering';
+import configuration from './configuration';
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <h3>Hi</h3>
+        <Foo>
+          <Bar>
+            <Baz></Baz>
+          </Bar>
+        </Foo>
       </div>
     );
   }
 }
-// <Foo>
-//   <Bar>
-//     <Baz></Baz>
-//   </Bar>
-// </Foo>
-
 
 class Foo extends React.Component {
   componentWillMount() {
@@ -67,4 +68,10 @@ class Baz extends React.Component {
   }
 }
 
+// renderMultipleComponents(configuration.components, document.getElementById('app'))
 ReactDOM.render(<App />, document.getElementById('app'));
+// <Foo>
+//   <Bar>
+//     <Baz></Baz>
+//   </Bar>
+// </Foo>

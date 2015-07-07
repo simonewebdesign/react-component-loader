@@ -1,5 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 // returns a reference to the rendered component.
-function renderComponent(component, mountNode) {
+export function renderComponent(component, mountNode) {
   console.log(`renderComponent: rendering ${component.type} into `, mountNode);
 
   return ReactDOM.render(<component.type />, mountNode, () => {
@@ -7,8 +10,7 @@ function renderComponent(component, mountNode) {
   });
 }
 
-function renderMultipleComponents(components, mountNode) {
-
+export function renderMultipleComponents(components, mountNode) {
   components.forEach(component => {
     let renderedComponent = renderComponent(component, mountNode);
 

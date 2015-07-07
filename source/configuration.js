@@ -1,4 +1,4 @@
-let configuration = {
+export default {
   type: 'app',
   label: 'My App',
   components: [
@@ -16,4 +16,4 @@ let configuration = {
       }]
     }
   ]
-}
+};
